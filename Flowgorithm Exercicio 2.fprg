@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+  <attributes>
+    <attribute name="name" value="Exercicio 2 - Caixa Eletronico"/>
+    <attribute name="authors" value=""/>
+    <attribute name="about" value="Lista de Exercicios 03"/>
+    <attribute name="saved" value="2026-09-17 21:30:00"/>
+  </attributes>
+  <function name="Main" type="None" variable="">
+    <parameters/>
+    <body>
+      <declare name="N, i, opcao" type="Integer" array="False" size=""/>
+      <declare name="saldo, valor" type="Real" array="False" size=""/>
+      <assign variable="saldo" expression="500"/>
+      <output expression="&quot;Quantas operacoes deseja realizar?&quot;" newline="True"/>
+      <input variable="N"/>
+      <for variable="i" start="1" end="N" direction="inc" step="1">
+        <output expression="&quot;1 - Consultar saldo&quot;" newline="True"/>
+        <output expression="&quot;2 - Sacar&quot;" newline="True"/>
+        <output expression="&quot;3 - Depositar&quot;" newline="True"/>
+        <input variable="opcao"/>
+        <if expression="opcao = 1">
+          <then>
+            <output expression="&quot;Saldo: R$ &quot; &amp; saldo" newline="True"/>
+          </then>
+          <else>
+            <if expression="opcao = 2">
+              <then>
+                <output expression="&quot;Digite o valor do saque:&quot;" newline="True"/>
+                <input variable="valor"/>
+                <if expression="valor &lt;= saldo">
+                  <then>
+                    <assign variable="saldo" expression="saldo - valor"/>
+                    <output expression="&quot;Saque realizado.&quot;" newline="True"/>
+                  </then>
+                  <else>
+                    <output expression="&quot;Saldo insuficiente.&quot;" newline="True"/>
+                  </else>
+                </if>
+              </then>
+              <else>
+                <if expression="opcao = 3">
+                  <then>
+                    <output expression="&quot;Digite o valor do deposito:&quot;" newline="True"/>
+                    <input variable="valor"/>
+                    <assign variable="saldo" expression="saldo + valor"/>
+                    <output expression="&quot;Deposito realizado.&quot;" newline="True"/>
+                  </then>
+                  <else>
+                    <output expression="&quot;Opcao invalida.&quot;" newline="True"/>
+                  </else>
+                </if>
+              </else>
+            </if>
+          </else>
+        </if>
+      </for>
+      <output expression="&quot;Saldo final: R$ &quot; &amp; saldo" newline="True"/>
+    </body>
+  </function>
+</flowgorithm>

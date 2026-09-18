@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Exercicio 1 - Alunos"/>
+        <attribute name="authors" value=""/>
+        <attribute name="about" value="Lista de Exercicios 03"/>
+        <attribute name="saved" value="2026-09-17 10:02:05 "/>
+        <attribute name="created" value="am9hb2w7Sk9BT0xVQ0FTOzIwMjYtMDktMTc7IjEwOjAwOjA1ICI7MjM5NA=="/>
+        <attribute name="edited" value="am9hb2w7Sk9BT0xVQ0FTOzIwMjYtMDktMTc7IjEwOjAyOjA1ICI7MTsyNTA0"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="N" type="Integer" array="False" size=""/>
+            <declare name="i" type="Integer" array="False" size=""/>
+            <declare name="aprovados" type="Integer" array="False" size=""/>
+            <declare name="recuperacao" type="Integer" array="False" size=""/>
+            <declare name="reprovados" type="Integer" array="False" size=""/>
+            <declare name="nome" type="String" array="False" size=""/>
+            <declare name="nota1" type="Real" array="False" size=""/>
+            <declare name="nota2" type="Real" array="False" size=""/>
+            <declare name="media" type="Real" array="False" size=""/>
+            <assign variable="aprovados" expression="0"/>
+            <assign variable="recuperacao" expression="0"/>
+            <assign variable="reprovados" expression="0"/>
+            <output expression="&quot;Quantos alunos serao avaliados?&quot;" newline="True"/>
+            <input variable="N"/>
+            <for variable="i" start="1" end="N" direction="inc" step="1">
+                <output expression="&quot;Digite o nome do aluno:&quot;" newline="True"/>
+                <input variable="nome"/>
+                <output expression="&quot;Digite a primeira nota:&quot;" newline="True"/>
+                <input variable="nota1"/>
+                <output expression="&quot;Digite a segunda nota:&quot;" newline="True"/>
+                <input variable="nota2"/>
+                <assign variable="media" expression="(nota1 + nota2) / 2"/>
+                <if expression="media &gt;= 6">
+                    <then>
+                        <output expression="nome &amp; &quot; - Media: &quot; &amp; media &amp; &quot; - Aprovado&quot;" newline="True"/>
+                        <assign variable="aprovados" expression="aprovados + 1"/>
+                    </then>
+                    <else>
+                        <if expression="media &gt;= 5">
+                            <then>
+                                <output expression="nome &amp; &quot; - Media: &quot; &amp; media &amp; &quot; - Recuperacao&quot;" newline="True"/>
+                                <assign variable="recuperacao" expression="recuperacao + 1"/>
+                            </then>
+                            <else>
+                                <output expression="nome &amp; &quot; - Media: &quot; &amp; media &amp; &quot; - Reprovado&quot;" newline="True"/>
+                                <assign variable="reprovados" expression="reprovados + 1"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;Aprovados: &quot; &amp; aprovados" newline="True"/>
+            <output expression="&quot;Recuperacao: &quot; &amp; recuperacao" newline="True"/>
+            <output expression="&quot;Reprovados: &quot; &amp; reprovados" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

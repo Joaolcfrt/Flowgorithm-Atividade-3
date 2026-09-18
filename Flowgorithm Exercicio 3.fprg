@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+  <attributes>
+    <attribute name="name" value="Exercicio 3 - Loja"/>
+    <attribute name="authors" value=""/>
+    <attribute name="about" value="Lista de Exercicios 03"/>
+    <attribute name="saved" value="2026-09-17 21:30:00"/>
+  </attributes>
+  <function name="Main" type="None" variable="">
+    <parameters/>
+    <body>
+      <declare name="N, i" type="Integer" array="False" size=""/>
+      <declare name="preco, total, desconto, percentual, valorFinal" type="Real" array="False" size=""/>
+      <assign variable="total" expression="0"/>
+      <output expression="&quot;Quantos produtos serao comprados?&quot;" newline="True"/>
+      <input variable="N"/>
+      <for variable="i" start="1" end="N" direction="inc" step="1">
+        <output expression="&quot;Digite o preco do produto:&quot;" newline="True"/>
+        <input variable="preco"/>
+        <assign variable="total" expression="total + preco"/>
+      </for>
+      <if expression="total &gt; 100">
+        <then>
+          <assign variable="percentual" expression="10"/>
+          <assign variable="desconto" expression="total * 0.10"/>
+        </then>
+        <else>
+          <if expression="total &gt;= 50">
+            <then>
+              <assign variable="percentual" expression="5"/>
+              <assign variable="desconto" expression="total * 0.05"/>
+            </then>
+            <else>
+              <assign variable="percentual" expression="0"/>
+              <assign variable="desconto" expression="0"/>
+            </else>
+          </if>
+        </else>
+      </if>
+      <assign variable="valorFinal" expression="total - desconto"/>
+      <output expression="&quot;Total sem desconto: R$ &quot; &amp; total" newline="True"/>
+      <output expression="&quot;Percentual aplicado: &quot; &amp; percentual &amp; &quot;%&quot;" newline="True"/>
+      <output expression="&quot;Valor final a pagar: R$ &quot; &amp; valorFinal" newline="True"/>
+    </body>
+  </function>
+</flowgorithm>
